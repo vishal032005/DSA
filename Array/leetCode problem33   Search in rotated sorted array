@@ -15,14 +15,14 @@ public class searchInRotated {
             int mid = (low+high)/2;
             if(nums[mid] == targetNum){
                 return mid;                                                    // targetValue is find
-            }else if(nums[low]<=nums[mid]){                                    //check array sorted or not
+            }else if(nums[low]<=nums[mid]){                                    //if array is sorted
                 if(nums[mid]>= targetNum && nums[low]<=targetNum){
                     high = mid-1;
                 }else{
                     low = mid+1;
                 }
             }else{
-                if(targetNum >= nums[mid+1] && targetNum <= nums[high]){
+                if(targetNum >= nums[mid+1] && targetNum <= nums[high]){       // if array is not sorted
                     low = mid+1;
                 }else{
                     high= mid-1;
