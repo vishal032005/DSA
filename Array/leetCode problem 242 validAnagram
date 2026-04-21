@@ -1,0 +1,42 @@
+// import java.util.Arrays;   
+
+public class validAnagram {
+    public static boolean isAnagram(String s, String t) {
+        
+        // brutforce
+        // int n1 = s.length();
+        // int n2 = t.length();
+        // if(n1 != n2) return false;
+        // char[] arr1 = s.toCharArray();
+        // char[] arr2 = t.toCharArray();
+        // Arrays.sort(arr1);
+        // Arrays.sort(arr2);
+        // if(Arrays.equals(arr1, arr2)) return true;
+        // return false;
+
+        
+
+
+       // obtimize (by hashing)
+        int [] count = new int[26];
+        int n1 = s.length();
+        int n2 = t.length();
+        if(n1 != n2) return false;
+        for(int i = 0; i<n1; i++){
+            count[s.charAt(i)-'a']++;
+            count[t.charAt(i)-'a']--;
+        }
+        for(int i = 0; i<26; i++){
+            if(count[i] != 0) return false;
+        }
+        return true;
+        
+    }
+
+    public static void main(String[] args) {
+        String s1 = "helol";
+        String s2 = "hello";
+        System.out.println(isAnagram(s1, s2));
+
+    }
+}
